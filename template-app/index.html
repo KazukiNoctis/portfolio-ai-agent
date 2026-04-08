@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Animasi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Cristino<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#portfolio">Portofolio</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content animate-fade-in">
+            <h3>Halo, Saya</h3>
+            <h1>Cristino Doe</h1>
+            <h2 class="typing-text">Saya seorang <span id="typewriter"></span><span class="cursor">|</span></h2>
+            <p>Saya membuat antarmuka pengguna yang indah dan fungsional dengan animasi yang menarik.</p>
+            <a href="#contact" class="btn">Hubungi Saya</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container scroll-animate">
+            <h2 class="section-title">Tentang Saya</h2>
+            <p>Saya adalah pengembang web front-end yang bersemangat tentang desain UI/UX dan interaksi web. Saya memiliki pengalaman dalam membangun aplikasi web responsif dan dinamis menggunakan teknologi terbaru.</p>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title scroll-animate">Karya Saya</h2>
+            <div class="grid">
+                <div class="card scroll-animate">
+                    <h3>Proyek 1</h3>
+                    <p>Aplikasi E-commerce dengan fitur keranjang belanja interaktif.</p>
+                </div>
+                <div class="card scroll-animate" style="transition-delay: 0.2s;">
+                    <h3>Proyek 2</h3>
+                    <p>Sistem Manajemen Perusahaan berbasis dashboard dinamis.</p>
+                </div>
+                <div class="card scroll-animate" style="transition-delay: 0.4s;">
+                    <h3>Proyek 3</h3>
+                    <p>Desain Landing Page untuk startup teknologi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container scroll-animate">
+            <h2 class="section-title">Mari Berkolaborasi</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Nama Anda" required>
+                <input type="email" placeholder="Email Anda" required>
+                <textarea placeholder="Pesan Anda" rows="5" required></textarea>
+                <button type="submit" class="btn">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
