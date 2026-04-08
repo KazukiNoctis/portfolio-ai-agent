@@ -17,6 +17,7 @@ export default async function Home() {
   
   let profile = null;
   let skills = [];
+  let projects = [];
 
   if (supabaseUrl && supabaseAnonKey) {
     const supabase = createClient(supabaseUrl, supabaseAnonKey);
@@ -41,6 +42,16 @@ export default async function Home() {
     if (skillsData && skillsData.length > 0) {
       skills = skillsData;
     }
+
+    // Fetch projects
+    const { data: projectsData } = await supabase
+      .from("portfolio_projects")
+      .select("*")
+      .order("display_order", { ascending: true });
+
+    if (projectsData && projectsData.length > 0) {
+      projects = projectsData;
+    }
   }
 
   return (
@@ -58,7 +69,9 @@ export default async function Home() {
           aboutDescription={profile?.about_description}
           skills={skills.length > 0 ? skills : undefined}
         />
-        <PortfolioSection />
+        <PortfolioSection 
+          projects={projects.length > 0 ? projects : undefined}
+        />
         <ChatInterface />
         <ContactSection />
       </main>

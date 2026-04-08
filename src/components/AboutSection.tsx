@@ -24,28 +24,28 @@ const iconMap: Record<string, any> = {
 
 const defaultSkills: Skill[] = [
   {
-    title: "Web Development",
+    title: "Full-Stack Engineer",
     description:
       "Building modern web applications with Next.js, React, TypeScript, and Laravel.",
     icon_name: "Code2",
     delay: "0s",
   },
   {
-    title: "UI/UX Design",
+    title: "Product Engineer",
     description:
-      "Designing intuitive and engaging interfaces for the best user experience.",
+      "Designing robust system architectures that balance performance, scalability, and real-world usability.",
     icon_name: "Palette",
     delay: "0.15s",
   },
   {
-    title: "AI Integration",
+    title: "AI Systems Developer",
     description:
       "Integrating artificial intelligence into applications for smarter solutions.",
     icon_name: "Brain",
     delay: "0.3s",
   },
   {
-    title: "Web3 & Blockchain",
+    title: "Web3 Engineer",
     description:
       "Exploring decentralized technologies and smart contracts for the future of the web.",
     icon_name: "Globe",
