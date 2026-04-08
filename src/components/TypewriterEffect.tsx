@@ -2,25 +2,34 @@
 
 import { useState, useEffect, useCallback } from "react";
 
-const words = ["Web Developer", "UI/UX Designer", "AI Enthusiast", "Freelancer"];
+interface TypewriterEffectProps {
+  words?: string[];
+}
 
-export default function TypewriterEffect() {
+export default function TypewriterEffect({ 
+  words = ["Web Developer", "UI/UX Designer", "AI Enthusiast", "Freelancer"] 
+}: TypewriterEffectProps) {
   const [text, setText] = useState("");
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
   const tick = useCallback(() => {
-    const currentWord = words[wordIndex];
+    // Safety check just in case words array is empty
+    if (!words || words.length === 0) return;
+    
+    const currentWord = words[wordIndex] || "";
 
     if (isDeleting) {
       setText(currentWord.substring(0, text.length - 1));
     } else {
       setText(currentWord.substring(0, text.length + 1));
     }
-  }, [text, wordIndex, isDeleting]);
+  }, [text, wordIndex, isDeleting, words]);
 
   useEffect(() => {
-    const currentWord = words[wordIndex];
+    if (!words || words.length === 0) return;
+    
+    const currentWord = words[wordIndex] || "";
     let speed = isDeleting ? 50 : 100;
 
     if (!isDeleting && text === currentWord) {
@@ -37,7 +46,7 @@ export default function TypewriterEffect() {
 
     const timer = setTimeout(tick, speed);
     return () => clearTimeout(timer);
-  }, [text, isDeleting, wordIndex, tick]);
+  }, [text, isDeleting, wordIndex, tick, words]);
 
   return (
     <span>

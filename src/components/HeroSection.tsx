@@ -3,7 +3,19 @@
 import TypewriterEffect from "./TypewriterEffect";
 import { ArrowDown, Sparkles } from "lucide-react";
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  name?: string;
+  roles?: string[];
+  heroDescription?: string;
+  profilePictureUrl?: string | null;
+}
+
+export default function HeroSection({
+  name = "Ferdy",
+  roles,
+  heroDescription = "I build beautiful and functional user interfaces, empowered by artificial intelligence for an exceptional collaborative experience.",
+  profilePictureUrl,
+}: HeroSectionProps) {
   return (
     <section
       id="home"
@@ -17,7 +29,19 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-3xl mx-auto">
+      <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
+        {/* Profile Picture */}
+        {profilePictureUrl && (
+          <div className="animate-fade-in-up mb-6 relative">
+            <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl scale-110"></div>
+            <img
+              src={profilePictureUrl}
+              alt={`${name} Profile`}
+              className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-border-subtle shadow-xl transition-transform hover:scale-105 duration-300"
+            />
+          </div>
+        )}
+
         {/* Badge */}
         <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8">
           <Sparkles size={14} />
@@ -31,22 +55,21 @@ export default function HeroSection() {
 
         {/* Name */}
         <h1 className="animate-fade-in-up-delay-1 text-5xl md:text-7xl font-bold mb-4 tracking-tight">
-          <span className="gradient-text">Ferdy</span>
+          <span className="gradient-text">{name}</span>
         </h1>
 
         {/* Typewriter */}
         <h2 className="animate-fade-in-up-delay-2 text-2xl md:text-3xl mb-6 font-light">
-          I am a <TypewriterEffect />
+          I am a <TypewriterEffect words={roles} />
         </h2>
 
         {/* Description */}
         <p className="animate-fade-in-up-delay-2 text-text-muted text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-          I build beautiful and functional user interfaces, empowered
-          by artificial intelligence for an exceptional collaborative experience.
+          {heroDescription}
         </p>
 
         {/* CTA Buttons */}
-        <div className="animate-fade-in-up-delay-3 flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="animate-fade-in-up-delay-3 flex flex-col sm:flex-row gap-4 justify-center w-full">
           <a
             href="#chat"
             className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-primary text-white rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,74,87,0.4)]"
