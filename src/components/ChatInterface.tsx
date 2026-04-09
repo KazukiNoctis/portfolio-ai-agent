@@ -30,9 +30,9 @@ export default function ChatInterface() {
   }, [messages]);
 
   const suggestedQuestions = [
-    "What are Ferdy's main skills?",
-    "What projects has Ferdy worked on?",
-    "How can I contact Ferdy?",
+    "What's your experience as a developer?",
+    "What projects have you worked on?",
+    "What can you help me build or solve?",
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
